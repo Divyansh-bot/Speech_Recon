@@ -1,0 +1,23 @@
+import speech_recognition as sr
+import pyaudio
+import os
+import pyttsx3
+
+r = sr.Recognizer()
+pyttsx3.speak("Say something")
+print("Say something")
+with sr.Microphone() as source :
+    
+    audio = r.listen(source)
+    try :
+        text = r.recognize_google(audio, language="fr-FR")
+        
+        if text=="open notepad" or text == "open no parle" or text == "open Noel" or text == "open Noel pad" or text == "openoble":
+            pyttsx3.speak("openning notepad")          
+            os.system("Notepad")
+        else:
+            pyttsx3.speak("Say again")
+            print("Say again :")
+           
+    except :
+        print("Sorry, could not hear !")
